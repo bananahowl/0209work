@@ -61,6 +61,19 @@ public class MovieFacade {
         }
 
     }
+    
+    public void AddMovie(String title, String director){
+        EntityManager em = emf.createEntityManager();
+        try{
+        
+            Movie val = new Movie(title, director);
+            em.getTransaction().begin();
+            em.persist(val);
+            em.getTransaction().commit();
+        }finally{
+        em.close();
+        }
+    }
 
     //TODO later ..
 //        @Entity
