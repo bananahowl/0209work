@@ -17,7 +17,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 //Todo Remove or change relevant parts before ACTUAL use
-@Path("xxx")
+@Path("movie")
 public class MovieResource {
 
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory(
@@ -46,6 +46,15 @@ public class MovieResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getMovieTitles() {
+        List<Movie> movieList = FACADE.getAllTitles();
+        //System.out.println("--------------->"+count);
+        Gson gson = new Gson();
+        return gson.toJson(movieList);
+    }
+    @Path("/all")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public String getAllMovies(){
         List<Movie> movieList = FACADE.getAllTitles();
         //System.out.println("--------------->"+count);
         Gson gson = new Gson();

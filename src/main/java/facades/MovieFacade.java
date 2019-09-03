@@ -15,13 +15,13 @@ public class MovieFacade {
 
     private static MovieFacade instance;
     private static EntityManagerFactory emf;
-    
+
     //Private Constructor to ensure Singleton
-    private MovieFacade() {}
-    
-    
+    private MovieFacade() {
+    }
+
     /**
-     * 
+     *
      * @param _emf
      * @return an instance of this facade class.
      */
@@ -35,50 +35,51 @@ public class MovieFacade {
 
     private EntityManager getEntityManager() {
         return emf.createEntityManager();
-    
+
     }
+
     //TODO Remove/Change this before use
-    public long getRenameMeCount(){
+    public long getRenameMeCount() {
         EntityManager em = emf.createEntityManager();
-        try{
-            long renameMeCount = (long)em.createQuery("SELECT COUNT(m) FROM Movie m").getSingleResult();
+        try {
+            long renameMeCount = (long) em.createQuery("SELECT COUNT(m) FROM Movie m").getSingleResult();
             return renameMeCount;
-        }finally{  
+        } finally {
             em.close();
         }
-        
+
     }
-        public List<Movie> getAllTitles(){
+
+    public List<Movie> getAllTitles() {
         EntityManager em = emf.createEntityManager();
-        try{
+        try {
             TypedQuery<Movie> movies = em.createQuery("SELECT m FROM Movie m ", Movie.class);
-                    
+
             return movies.getResultList();
-        }finally{  
+        } finally {
             em.close();
         }
-        
+
     }
-        
-        //TODO later ..
+
+    //TODO later ..
 //        @Entity
 //@NamedQueries({
 //@NamedQuery(name = "Movie.deleteAllRows", query = "DELETE from Movie"),
 //@NamedQuery(name = "Movie.getAll", query = "SELECT m FROM Movie m"),
-//@NamedQuery(name = "Movie.getByName", query = "SELECT m FROM Movie m WHERE m.name LIKE :name")
+//@NamedQuery(name = "Movie.getByName", query = "SELECT m FROM Movie m WHERE m.name = :name")
 //})
-
-    
-    public Movie getMovieTitle(String title){
-        EntityManager em = emf.createEntityManager();
-        try{
-            TypedQuery<Movie> movie = em.createQuery("SELECT m FROM Movie m where m.Title :=title", Movie.class);
-                    movie.setParameter("title", title);
+    public Movie aa(String title) {
+         EntityManager em = emf.createEntityManager();
+        try {
+            TypedQuery<Movie> movie = em.createQuery("SELECT m FROM Movie m WHERE m.title = :title", Movie.class);
+            movie.setParameter("title", title);
             return movie.getSingleResult();
-        }finally{  
+        } finally {
             em.close();
         }
-        
     }
-
-}
+    
+    
+  
+    }

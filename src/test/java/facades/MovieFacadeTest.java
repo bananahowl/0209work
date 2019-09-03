@@ -80,5 +80,12 @@ public class MovieFacadeTest {
     public void testAFacadeMethod() {
         assertEquals(2, facade.getRenameMeCount(), "Expects two rows in the database");
     }
+    @Test 
+    public void TestAllMovieTitle(){
+       Movie result = facade.aa("Some txt");
+               
+        System.out.println(result.toString());
+        assertEquals("Some txt", result.getTitle());
+    }
 
 }

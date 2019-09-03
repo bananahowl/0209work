@@ -30,33 +30,33 @@ public class Movie implements Serializable {
     
     // TODO, delete this class, or rename to an Entity class that makes sense for what you are about to do
     // Delete EVERYTHING below if you decide to use this class, it's dummy data used for the initial demo
-    private String Title;
-    private String Director;
+    private String title;
+    private String director;
 
     public Movie(String title, String director) {
-        this.Title = title;
-        this.Director = director
+        this.title = title;
+        this.director = director
 ;    }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        this.Title = title;
+        this.title = title;
     }
 
     public String getDirector() {
-        return Director;
+        return director;
     }
 
     public void setDirector(String director) {
-        this.Director = director;
+        this.director = director;
     }
 
     @Override
     public String toString() {
-        return "Movie:" + "id=" + id + ", Title=" + Title + ", Director=" + Director + '}';
+        return "Movie:" + "id=" + id + ", Title=" + title + ", Director=" + director + '}';
     }
     
     
