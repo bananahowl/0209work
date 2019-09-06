@@ -1,4 +1,4 @@
-
+"EDIT: There have not been made modification to satisfy the conditions for the FRIDAY ASSIGMENT AS THERE WAS NOT ENOUGH TIME AND BECUASE OF SICKNESS."
 
 *This project is meant as start code for projects and exercises given in Flow-1+2 at http://cphbusiness.dk in the Study Program "AP degree in Computer Science"*
 
